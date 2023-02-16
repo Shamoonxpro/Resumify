@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  institute_name: MyString
+  degree: MyString
+  strat_date: 2023-02-07
+  end_date: 2023-02-07
+
+two:
+  institute_name: MyString
+  degree: MyString
+  strat_date: 2023-02-07
+  end_date: 2023-02-07
