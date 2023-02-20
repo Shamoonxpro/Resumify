@@ -18,3 +18,8 @@ require("channels")
 import "stylesheets/application"
 import "bootstrap/dist/js/bootstrap"
 import "bootstrap/dist/css/bootstrap"
+
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require_tree .

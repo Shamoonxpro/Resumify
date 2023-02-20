@@ -39,53 +39,13 @@
   </div>
 </div>
 
-<div class="modal fade" id="two_factor">
-  <% url = @user.otp_module_enabled? ? disable_multi_factor_authentication_user_path(@user) : 
-                                        enable_multi_factor_authentication_user_path(@user) %>
-  <%= form_for :multi_factor_authentication, url: url, html: { class: 'form-inline' }  do |f| %>
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><%= @user.otp_module_enabled? ? 'Disable' : 'Enable' %> Two Factor Authentication</h4>
-        </div>
-        <div class="modal-body">
-          <% unless @user.otp_module_enabled? %>
-            <% qr = RQRCode::QRCode.new(resource.provisioning_uri, size: 40, level: :h ) %>
-            <table class="qr">
-              <% qr.modules.each_index do |x| %>
-              <tr>
-                <% qr.modules.each_index do |y| %>
-                  <% if qr.qrcode.checked?(x,y) %>
-                    <td class="black"/>
-                    <% else %>
-                    <td class="white"/>
-                  <% end %>
-                  <% end %>
-                </tr>
-              <% end %>
-              </table>
-            <hr>
-          <% end %>
-          <div class='form-group'>
-            <div class='text-center'>
-              <%= f.text_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "Update", class: 'btn btn-lg btn-block btn-primary' %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
 
 
 
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal fade" id="myModal">
+<% url = @user.otp_module_enabled? ? disable_multi_factor_authentication_user_path(@user) :                                   enable_multi_factor_authentication_user_path(@user) %>
+  <%= form_for :multi_factor_authentication, url: url, html: { class: 'form-inline' }  do |f| %>
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
@@ -112,16 +72,17 @@
     <% end %>
     <div class='form-group'>
       <div class='text-center'>
-        <%= text_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
+        <%= f.text_field :otp_code_token, placeholder: 'Verify Token', class: 'form-control input-lg' %>
       </div>
-    
-
-    
-
     </div>
   </div>
+  <div class="modal-footer">
+          <%= f.submit "Update", class: 'btn btn-lg btn-block btn-primary' %>
+        </div>
+  </div>
+    </div>
+  <%end%>
 </div>
-
 
 
 
