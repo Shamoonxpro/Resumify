@@ -3,7 +3,7 @@ class Users::MultiFactorAuthenticationController < ApplicationController
   before_action :set_user
 
   def verify_enable
-    
+      
     if current_user == @user && 
        current_user.authenticate_otp(params[:multi_factor_authentication][:otp_code_token], drift: 60)
       current_user.otp_module_enabled!

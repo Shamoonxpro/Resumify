@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+  # <%= f.select :role, User.roles.keys.map { |r| [r.to_s.capitalize, r] } %>
