@@ -56,6 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '>= 4.7'
 gem 'active_model_otp'
 gem 'rqrcode'
-
+gem "dotenv-rails", groups: [:development, :test]
+gem "recaptcha"
 
 

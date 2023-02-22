@@ -35,9 +35,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <%= recaptcha_tags %>
 
-  <%= f.select :role, User.roles.keys.map { |r| [r.to_s.capitalize, r] } %>
-
+  <%= f.hidden_field :role, value: 'user' %>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

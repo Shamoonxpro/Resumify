@@ -32,7 +32,8 @@
       <div class="form-group">
       <%= f.submit "Update", class: 'btn btn-lg btn-block btn-primary' %>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" "#{@user.otp_module_enabled? ? 'Disable' : 'Enable'}'#two_factor', 
-    data: { toggle: :modal, target: '#two_factor' } >Enable Two MFA</button>
+    data: { toggle: :modal, target: '#two_factor' } > Two MFA</button>
+  
 
     </div>
     <% end %>
