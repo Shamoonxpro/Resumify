@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "users/show"
 
+  resources :resumes
   resources :users do
     member do
       post :enable_multi_factor_authentication, to: 'users/multi_factor_authentication#verify_enable'
