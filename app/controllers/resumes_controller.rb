@@ -13,10 +13,12 @@ class ResumesController < ApplicationController
       render :new
     end
   end
-
   def show
     @resume = current_user.resume
     @user = current_user
+  end
+  def edit
+    
   end
   private
 
