@@ -1,13 +1,15 @@
 <nav class="navbar navbar-dark bg-primary text-white">
 <a class="navbar-brand" href="#">Resumify</a>
 <% if user_signed_in? %>
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete , class: "btn btn-primary"%>
-<%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary"	%>
-<%= link_to "Your data", users_show_path, class: "btn btn-primary"%>
-
+  <% if current_user.resume&.id.present? %>
+    <%= link_to "View Resume", resume_path(current_user.resume), class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Create Resume", new_resume_path(current_user.resume), class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete , class: "btn btn-primary"%>
+  <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary"	%>
+  <%= link_to "Your data", users_show_path, class: "btn btn-primary"%>
 <%else%>
-<%= link_to "Sign in", user_session_path, class: "btn btn-primary"%>
+  <%= link_to "Sign in", user_session_path, class: "btn btn-primary"%>
 <%end%>
-
-
 </nav>
