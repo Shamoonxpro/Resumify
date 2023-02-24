@@ -56,3 +56,5 @@ gem 'active_model_otp'
 gem 'rqrcode'
 gem "dotenv-rails", groups: [:development, :test]
 gem "recaptcha"
+gem 'rails-ujs'
+gem 'turbo-rails'
